@@ -15,5 +15,10 @@ spec:
         app: httpbin
     spec:
       containers:
-      - image: docker.io/kennethreitz/httpbin
-        name: httpbin
+        - image: docker.io/kennethreitz/httpbin
+          name: httpbin
+      tolerations:
+        - key: CriticalAddonsOnly
+          operator: Exists
+      nodeSelector:
+        agentpool: system
